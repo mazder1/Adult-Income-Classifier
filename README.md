@@ -60,34 +60,6 @@ The input data includes 15 features:
 
 -----
 
-## 🚀 Installation and Running the Project
-
-Follow these steps to set up and run the project locally.
-
-### Prerequisites
-
-The project requires the following standard Python libraries:
-
-```bash
-pip install pandas numpy scikit-learn
-```
-
-### Running the Model
-
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/YourUsername/YourRepoName.git
-    cd YourRepoName
-    ```
-2.  **Execute the Code:** Simply run the main script or notebook file containing the model logic.
-    ```bash
-    # Example (If using a Python script)
-    python main_model.py
-
-    # Example (If using a Jupyter/Colab Notebook)
-    # Open and execute all cells in the notebook file.
-    ```
-
 -----
 
 ## 📊 Results and Evaluation
@@ -102,14 +74,15 @@ The current performance metrics for the model are yet to be fully benchmarked.
 -----
 
 ## 🤝 Contribution and Licensing
+### Contributions
+Learned from:
+https://www.coursera.org/specializations/deep-learning
 
 ### License
 
 This project is released under the highly permissive **MIT License**.
 
 ### Contact
-
-If you have any questions, suggestions, or would like to discuss the project, please reach out:
 
   * **Miłosz Figura** - [LinkedIn](https://www.linkedin.com/in/mi%C5%82osz-figura-593822397/)
   * **Email:** ***miloszfigurapl@gmail.com***
