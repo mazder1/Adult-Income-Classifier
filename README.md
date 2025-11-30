@@ -16,19 +16,11 @@ The model is built with a focus on minimizing external dependencies, utilizing p
 
 ## ⚙️ Model Architecture
 
-The project employs a **4-layer, fully connected Multi-Layer Perceptron (MLP)**. This classic architecture is known for its versatility in modeling non-linear relationships within data.
+The project employs a **Multi-layer, fully connected Multi-Layer Perceptron (MLP)**. This classic architecture is known for its versatility in modeling non-linear relationships within data.
 
 ### Network Structure
 
 The model consists of the following layers, from input to output:
-
-| Layer | Size (Number of Neurons) | Description |
-| :--- | :--- | :--- |
-| **Input Layer** | 96 | Number of features after One-Hot Encoding. |
-| **Hidden Layer 1** | 50 | First dense layer. |
-| **Hidden Layer 2** | 25 | Second dense layer. |
-| **Hidden Layer 3** | 10 | Third dense layer. |
-| **Output Layer** | 1 | Final prediction layer (binary classification). |
 
 ### Technologies Used (Tech Stack)
 
@@ -68,7 +60,7 @@ The current performance metrics for the model are yet to be fully benchmarked.
 
 | Metric | Value |
 | :--- | :--- |
-| **Accuracy** | ***UNDER VERIFICATION*** |
+| **Accuracy** | ***74*** |
 | **Other Metrics** | *To be added soon* |
 
 -----
