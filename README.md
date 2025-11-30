@@ -8,3 +8,4 @@ Shape configuration at the beginning is wrong???
 
 
 ## used coursera deeplearningai Planar_data_classification_with_one_hidden_layer.ipynb as a role model 
+https://github.com/Kulbear/deep-learning-coursera/tree/master
