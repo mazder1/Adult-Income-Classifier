@@ -60,8 +60,8 @@ The current performance metrics for the model are yet to be fully benchmarked.
 
 | Metric | Value |
 | :--- | :--- |
-| **Accuracy** | ***74*** |
-| **Other Metrics** | *To be added soon* |
+| **Accuracy** | ***82%*** |
+| **Other Metrics** | *Low variance train acc - test acc = 0.3%* |
 
 -----
 
