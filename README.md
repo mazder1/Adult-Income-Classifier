@@ -40,7 +40,8 @@ Predictions are produced by thresholding output probabilities at 0.5 (after Sigm
 Accuracy is computed as the mean of correct predictions on the test set.​
 
 ## Result
-The notebook prints a test accuracy of approximately 0.857 (85.7%).​
+The notebook prints a test accuracy of approximately 0.857 (85.7%).
+adult_income_classifier_model (1).ipynb​
 
 ## Requirements
 This project uses:​
