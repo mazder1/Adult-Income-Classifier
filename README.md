@@ -1,80 +1,81 @@
-# US Citizen Income Classifier (Adult Income Classifier)
+US Citizen Income Classifier (Adult Income)
+Project overview
+This project tackles a binary classification task: predicting whether a person’s annual income is greater than 50,000 USD (>50K) or less than or equal to 50,000 USD (<=50K) using demographic and social attributes from the Adult (Census Income) dataset.​
+The solution uses an MLP (Multi-Layer Perceptron) trained in TensorFlow, with preprocessing done in Pandas (including One-Hot Encoding).​
 
-## Introduction
+Dataset
+The model is trained on the Adult Dataset from the UCI Machine Learning Repository (also referred to as Census Income).​
+In the notebook, data is loaded directly from the adult.data file hosted by UCI.​
 
-This project implements a **Multi-Layer Perceptron (MLP)** model designed to predict an individual's income based on demographic and social features. The core task is to determine if a person's annual income is **greater than $50,000 USD** (class `>50K`) or **less than or equal to $50,000 USD** (class `<=50K`).
+Columns
+The dataset includes attributes such as age, workclass, fnlwgt, education, education-num, marital-status, occupation, relationship, race, sex, capital-gain, capital-loss, hours-per-week, native-country, and the target label income.​​
 
-The model is built with a focus on minimizing external dependencies, utilizing primarily **NumPy** and **Pandas** for both data processing and the fundamental construction of the neural network layers.
+Preprocessing
+The notebook applies the following preprocessing steps:​
 
-### Key Features:
+Load the CSV and remove missing rows via dropna.​
 
-  * **Simple Architecture:** A foundational Multi-Layer Perceptron (MLP) built from scratch.
-  * **High Flexibility:** Modular design allowing for easy modification of layer sizes and depths.
-  * **Real-World Data:** Trained on the widely recognized *Adult* dataset from the UCI Machine Learning Repository.
+Convert the label to a binary target: >50K mapped to 1, otherwise 0.​
 
------
+Apply One-Hot Encoding with pd.get_dummies(..., drop_first=True).​
 
-## ⚙️ Model Architecture
+Standardize features using mean/std with a small constant epsilon = 1e-7 for numerical stability.​
 
-The project employs a **Multi-layer, fully connected Multi-Layer Perceptron (MLP)**. This classic architecture is known for its versatility in modeling non-linear relationships within data.
+Split the data into train and test sets using train_test_split(test_size=0.2, random_state=42).​
 
-### Network Structure
+Model and training
+The MLP parameters are initialized with Glorot/Xavier initialization (tf.keras.initializers.GlorotNormal).​
+Forward propagation uses ReLU activations in hidden layers and a Sigmoid activation in the output layer for binary classification.​
 
-The model consists of the following layers, from input to output:
+Optimization
+Optimizer: Adam (tf.keras.optimizers.Adam).​
 
-### Technologies Used (Tech Stack)
+Training loop uses tf.GradientTape, and mini-batches are built with tf.data.Dataset.batch(...).prefetch(...).​
 
-  * **Language:** Python 3
-  * **Core Libraries:**
-      * **NumPy:** Used for all core numerical matrix operations and layer implementation.
-      * **Pandas:** Used for efficient data handling and cleaning.
-      * **Scikit-learn:** Used solely for the `train_test_split` functionality.
+Example configuration from the notebook
+One run in the notebook uses the layer layout 96, 20, 10, 50, 10, 1 with learning_rate=0.01, num_epochs=100, and minibatch_size=512.​
 
------
+Prediction and metrics
+Predictions are produced by thresholding output probabilities at 0.5 (after Sigmoid).​
+Accuracy is computed as the mean of correct predictions on the test set.​
 
-## 💾 Dataset and Preprocessing
+Result
+The notebook prints a test accuracy of approximately 0.845 (84.5%).​
 
-### The Adult Dataset (UCI)
+Requirements
+This project uses:​
 
-The model is trained on the publicly available **Adult Dataset** from the UCI Machine Learning Repository.
+Python 3
 
-  * **Data Source:** [Adult Data Set (UCI Machine Learning Repository)](https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data)
+TensorFlow
 
-### Data Columns
+NumPy
 
-The input data includes 15 features:
-`'age', 'workclass', 'fnlwgt', 'education', 'education-num', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country', 'income'`
+Pandas
 
-### Preprocessing Steps
+scikit-learn (only for train_test_split)
 
-  * Categorical variables were converted into numerical vectors using **One-Hot Encoding**, resulting in **96 features** for the model's input layer.
-  * All data is in a `float` format.
+How to run
+Open adult_income_classifier_model.ipynb.​
 
------
+Run the cells in order: data loading, preprocessing, training, and evaluation.​
 
------
+The notebook prints training cost during learning and the final test accuracy.​
 
-## 📊 Results and Evaluation
+Key implementation components
+The notebook includes (among others):​
 
-The current performance metrics for the model are yet to be fully benchmarked.
+Parameter initialization (initialize_parameters).​
 
-| Metric | Value |
-| :--- | :--- |
-| **Accuracy** | ***82%*** |
-| **Other Metrics** | *Low variance train acc - test acc = 0.3%* |
+Forward steps for ReLU and Sigmoid (forward_step_relu, forward_step_sig).​
 
------
+Full forward propagation (forward_propagation).​
 
-## 🤝 Contribution and Licensing
-### Contributions
-Learned from:
-https://www.coursera.org/specializations/deep-learning
+Binary cross-entropy loss computed with from_logits=True.​
 
-### License
+Training function (model) built on tf.GradientTape + Adam.​
 
-This project is released under the highly permissive **MIT License**.
+Prediction (predict) and accuracy (calculate_accuracy).​
 
-### Contact
-
-  * **Miłosz Figura** - [LinkedIn](https://www.linkedin.com/in/mi%C5%82osz-figura-593822397/)
-  * **Email:** ***miloszfigurapl@gmail.com***
+License
+The project can be released under the MIT License (as stated in the project description).
